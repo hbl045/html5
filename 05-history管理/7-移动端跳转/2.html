@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body{
+                display: flex;
+                justify-content: space-between;
+            }
+
+            iframe{
+                display: block;
+                width: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="button" value="上一个页面" id="back">
+        这是第二个页面
+        <a href="3.html">跳转到第三个页面</a>
+
+        <input type="button" value="刷新" id="reload">
+
+        <input type="button" value="下一个页面" id="forward">
+
+        <iframe src="https://www.bilibili.com/" frameborder="0"></iframe>
+        <script>
+            back.onclick = function () {
+                window.history.go(-1);
+            }
+            forward.onclick = function () {
+                window.history.forward();
+            }
+            reload.onclick = function () {
+                window.location.reload();// 要事件
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

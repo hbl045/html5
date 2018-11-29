@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            html,body{
+                width: 100%;
+                height: 100%;
+            }
+            body{
+                display: flex;
+            }
+
+            canvas{
+                border:1px solid red;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas width="500" height="400"></canvas>
+        
+        <script>
+            let oC = document.querySelector('canvas');
+            let cxt = oC.getContext('2d');
+            cxt.lineWidth = 1;
+            cxt.beginPath();
+            cxt.moveTo(0,199.5);
+            cxt.lineTo(250,199.5);
+            cxt.stroke();
+
+            cxt.lineWidth = 5;
+            cxt.beginPath();
+            cxt.lineTo(250,100); //2. 没有moveTo 会接着上一个路径的结束点
+            cxt.lineTo(380,30);
+            cxt.stroke();
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

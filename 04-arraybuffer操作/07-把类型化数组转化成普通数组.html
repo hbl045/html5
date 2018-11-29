@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            // 这个数组里面是0~255 无符号的数组字
+            let typeArray = new Uint8Array([1,2,3,4]);
+            console.log(typeArray);
+            // 通过from方法把视图改变为普通数组
+            let arr1 = Array.from(typeArray);
+            console.log(arr1);
+            // 通过改变数组指向方法apply ，传入数组，从而改变。
+            let arr2 = Array.apply([],typeArray);
+            console.log(arr2);
+
+
+            // 把ArrayBuffer 转换为 blob
+            let arr3 = new ArrayBuffer(5);
+            console.log(arr3);
+            let blob = new Blob([arr3],{type:'text/plain'});
+            console.log(blob);
+
+            // 视图函数转 操作ArrayBuffer
+
+            let arr4 = new ArrayBuffer(26);
+            console.log(arr4);
+            let arr5 = new Int16Array(arr4);
+            console.log(arr5);
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

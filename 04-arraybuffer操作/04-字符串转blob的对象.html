@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            // // 把字符串转Blob对象
+            // let arr = ['hello','world'];
+            // //Blob 对象 第一个值为数组 ，第二个值为类型
+            // let blob = new Blob(arr,{type: 'text/plain' });
+            // console.log(blob);
+
+            let arr = ['hello','world'];
+            let blob = new Blob(arr,{type: 'text/plain' });
+            // slice 方法会返回新对象 ， 一般用于剪切上传文件 ，使后端服务器接受
+            let newBlob = blob.slice(0,5)// 0 <= x <5
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

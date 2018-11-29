@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            // canvas 绘制图表 大数据可视化 echarts
+
+            let c = document.createElement("canvas");
+            c.style.border = '1px solid yellow';
+            let cxt = c.getContext('2d');
+            cxt.fillStyle = 'pink';
+            cxt.fillRect(0,0,300,150);
+            cxt.fillStyle = '#ff0036';
+            cxt.fillRect(50,50,100,50);
+            document.body.appendChild(c);
+
+
+            //  把canvas 图片数据 转换成 blob对象
+            c.toBlob(function (blob) {
+                console.log(blob);
+                let img = new Image();
+                img.src = window.URL.createObjectURL(blob);
+                img.onload = function () {
+                    document.body.appendChild(img);
+                }// 通过file转blob ，获得src值 赋值
+
+                let reader = new FileReader();
+                reader.readAsDataURL(blob,'utf-8');
+                reader.onload = function (e) {
+                    console.log(e.target.result);
+                    let img = new Image();
+                    img.src = e.target.result;
+                    img.onload = function () {
+                        document.body.appendChild(img);
+                    }
+                }
+            })
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

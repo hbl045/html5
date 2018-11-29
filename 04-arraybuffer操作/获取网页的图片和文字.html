@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            body{
+                background-color: #ccc;
+            }
+            #box{
+                width: 1000px;
+                height: 150px;
+                background-color: rgba(0,0,0,.5);
+                margin: 50px auto;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="img/mm.jpg" width="100" alt="" />
+        今天学习元数据转换~~~~~~~
+
+        <div id="box"></div>
+        
+        <script>
+            box.ondragover = function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            box.ondrop = function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                let dataTransfer = e.dataTransfer;
+                //这两种是网页中的图片、文字资源获取
+                // console.log(dataTransfer);
+                //获取内部的文字信息
+                // let text = dataTransfer.getData('text')||dataTransfer.getData('text/plain');
+                // console.log(text);
+                //box.innerHTML += `<img  width="80px" src="${text}" />`//在react 的框架中单标签需要带转义字符，不然识别错误
+
+                //内部图片拖拽和获取URL
+                // let url = dataTransfer.getData('url') || dataTransfer.getData('text/url-list');
+                // console.log(url);
+                // box.innerHTML += `<img  width="80px" src="${url}" />`//在react 的框架中单标签需要带转义字符，不然识别错误
+
+                //这种是外部文件内容获取与HTML-file类似
+                //这个是获取外部图片的url 加显示
+                // let fileData = dataTransfer.files[0];
+                // let reader = new FileReader();
+                // reader.readAsDataURL(fileData);
+                // reader.onload = (e) => {
+                //     //console.log(e.target.result);
+                //     box.innerHTML += `<img  width="80px" src="${e.target.result}" />`
+                // }
+
+
+                //获取外部TXT文本
+                let fileData = dataTransfer.files[0];
+                let reader = new FileReader();
+                reader.readAsText(fileData);
+                reader.onload = (e) => {
+                    //console.log(e.target.result);  这个方法对于中文无法转义 -- 需要拖拽的文本是utf-8格式
+                    box.innerHTML += e.target.result
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

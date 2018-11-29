@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            body{
+                background: gray;
+            }
+            #wrap{
+                width:300px;
+                height: 150px;
+                background-color: purple;
+                position: absolute;
+                left: 100px;
+                top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            wrap.onmousedown= function (e) {
+                 e = e||event;
+                let x = e.clientX - this.offsetLeft;
+                let y = e.clientY - this.offsetHeight;
+
+                document.onmousemove = function (e) {
+                    e = e|| event;
+                    wrap.style.cssText = `left:` + (e.clientX -x)+`px;top:`+ (e.clientY - y)+`px`;
+                }
+                document.onmouseup = function () {
+                    document.onmousemove = document.onmousedown = null;
+                }
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

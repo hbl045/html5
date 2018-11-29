@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+
+            html,body{
+                width: 100%;
+                height: 100%;
+            }
+            body{
+                display: flex;
+            }
+            canvas{
+                background-color: gray;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas width="500px" height="300px"></canvas>
+        
+        <script>
+            let oc = document.querySelector('canvas');
+            let cxt = oc.getContext('2d');
+
+            let n = 0;
+            let range = 150 ; // 波幅
+            let wave = 300; // 波长
+            let start = 0;
+            cxt.translate(0,150);
+            cxt.moveTo(0,0);
+            fn();
+            function fn() {   // Math.sin((n-start)*2*Math.PI/wave)*range
+                n +=  5 ;       // Math.sin((n-start)*2*Math.PI/wave)*range
+                cxt.lineTo(n,Math.sin((n-start)*2*Math.PI/wave)*range);
+                cxt.stroke()
+                if(n > 500){
+                    start +=10;
+                    n = 0;
+                    cxt.moveTo(n,Math.sin((n-start)*2*Math.PI/wave)*range);
+                }
+                requestAnimationFrame(fn);
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

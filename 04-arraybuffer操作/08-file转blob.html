@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            let blob = new Blob(['大龙'],{type:'text/plain'});
+            console.log(blob);
+            let reader = new FileReader(blob);
+            reader.readAsArrayBuffer(blob);
+            reader.onload = function (e) {
+                console.log(e.target.result);
+                let r = e.target.result;
+                // let buffer = new Uint8Array(r);
+                // console.log(buffer);
+                // let blob2 = new Blob([buffer]);
+                // reader.readAsArrayBuffer(blob2,'utf-8');
+                // reader.onload = function (e) {
+                //     console.log(e.target.result);
+                // }
+
+                // 数据视图
+                let dataV = new DataView(r);
+                console.log(dataV);
+                reader.readAsText(new Blob([dataV]),'utf-8');
+                reader.onload = function (e) {
+                    console.log(e.target.result);
+                }
+
+            }
+            
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+            body{
+                background-color: gray;
+            }
+            #left{
+                width: 150px;
+                height: 300px;
+                background-color: purple;
+                float: left;
+            }
+            #right{
+                width: 100px;
+                height: 158px;
+                background-color: palevioletred;
+                float: right;
+            }
+            li{
+                line-height: 30px;
+                border: 1px solid rebeccapurple;
+            }
+            #oImg{
+                position: absolute;
+                left: -9999px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="left"></div>
+        <ul id="right" >
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <img id= "oImg" src="img/2.jpg" alt="">
+        <script>
+            aLi = right.querySelectorAll("li");
+
+            aLi.forEach((e,index)=>{
+                e.setAttribute("draggable","true");
+                e.ondragstart = function (b) {
+                    console.log(b.dataTransfer)
+                    b.dataTransfer.setData("key", index);
+                    b.dataTransfer.setDragImage(oImg, 20, 20)
+                }
+            })
+
+            left.ondragenter = function () {
+                this.innerText = "释放你的双手，成就你的梦想";
+            }
+            left.ondragover = function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            left.ondragleave = function () {
+                this.innerText = "";
+            }
+            left.ondrop = function (e) {
+                this.innerText = "请拖拽到此区";
+                right.removeChild(aLi[e.dataTransfer.getData("key")]);
+            }
+
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

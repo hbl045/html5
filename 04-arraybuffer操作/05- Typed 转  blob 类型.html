@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <meta name="keywords" content="关键词">
+        <meta name="description" content="描述">
+        <meta name="author" content="黄柏龙">
+        <style>
+            body{font-family: "Microsoft YaHei",serif;}
+            body,dl,dd,p,h1,h2,h3,h4,h5,h6{margin:0;}
+            ol,ul,li{margin:0;padding:0;list-style:none;}
+            img{border:none;}
+        
+        </style>
+    </head>
+    <body>
+        <div id="wrap"></div>
+        
+        <script>
+            const str = 'shanzhu shi zhu';
+            let arr = [];
+            for (let i = 0; i < str.length; i++) {
+                arr[i] = str.charCodeAt(i);
+            }
+            console.log(arr);
+            let arr1 = new Uint8Array(arr);
+            console.log(arr1);
+
+            // 把这种类型转化成 Blob
+            let blob = new Blob ([arr1],{type : 'text/plain'});
+            console.log(blob);
+            // 读取blob类型显示
+            let reader = new FileReader();
+            reader.readAsText(blob, 'utf8'); //默认UTF-8
+            reader.onload = function (e) { //需要网页加载内容 相当一个后端返回前端的过程
+                console.log(e.target.result);
+                let data = e.target.result;
+                let blob2 = new Blob([data]);//通过操作这个mime类型改变文档类型
+                // 通过介质
+                let link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob2);
+                link.download = 'abcd.txt';//同时改变这个文件后缀名
+                link.click();
+            }
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
